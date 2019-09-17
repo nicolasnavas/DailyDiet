@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout_general"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- Left Leave-behind -->
+        <RelativeLayout
+            android:id="@+id/rl_leftLeaveBehind"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imgArchive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:contentDescription="Minimum"
+                app:srcCompat="@drawable/ic_create_white_24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@+id/imgArchive"
+                android:text="Create Minimum"
+                android:textAllCaps="true"
+                android:textColor="@color/bottom_nav_selected_tab" />
+
+        </RelativeLayout>
+
+        <!-- Right Leave-behind -->
+        <RelativeLayout
+            android:id="@+id/rl_rightLeaveBehind"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/delete">
+
+            <ImageView
+                android:id="@+id/imgDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                app:srcCompat="@drawable/ic_delete_white_24dp"
+                android:contentDescription="Delete"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:layout_toStartOf="@+id/imgDelete"
+                android:text="Delete"
+                android:textAllCaps="true"
+                android:textColor="@color/bottom_nav_selected_tab"/>
+
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardUseCompatPadding="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgIngredient"
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/lblStoredIngredientQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/lblMinusOne"
+                    app:layout_constraintHorizontal_bias="0.52"
+                    app:layout_constraintStart_toEndOf="@+id/imgIngredient"
+                    app:layout_constraintTop_toBottomOf="@+id/lblIngredientName"
+                    app:layout_constraintVertical_bias="0.100000024"
+                    tools:text="@android:string/status_bar_notification_info_overflow" />
+
+                <TextView
+                    android:id="@+id/lblIngredientName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toStartOf="@+id/lblPlusOne"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/imgIngredient"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@tools:sample/cities" />
+
+                <TextView
+                    android:id="@+id/lblPlusOne"
+                    android:layout_width="80dp"
+                    android:layout_height="0dp"
+                    android:background="@android:color/holo_blue_light"
+                    android:gravity="center"
+                    android:text="+1"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="@color/bottom_nav_selected_tab"
+                    app:layout_constraintBottom_toTopOf="@+id/lblMinusOne"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/lblMinusOne"
+                    android:layout_width="80dp"
+                    android:layout_height="0dp"
+                    android:background="@android:color/holo_red_light"
+                    android:gravity="center"
+                    android:text="-1"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="@color/bottom_nav_selected_tab"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lblPlusOne" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

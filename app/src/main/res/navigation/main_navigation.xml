@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/destHome">
+
+    <fragment
+        android:id="@+id/destHome"
+        android:name="es.saladillo.nicolas.dailydiet.ui.fragments.home.Home"
+        android:label="Home"
+        tools:layout="@layout/home_fragment" />
+    <fragment
+        android:id="@+id/destPantry"
+        android:name="es.saladillo.nicolas.dailydiet.ui.fragments.pantry.Pantry"
+        android:label="Pantry"
+        tools:layout="@layout/pantry_fragment" />
+    <fragment
+        android:id="@+id/destRecipes"
+        android:name="es.saladillo.nicolas.dailydiet.ui.fragments.recipes.Recipes"
+        android:label="Recipes"
+        tools:layout="@layout/recipes_fragment" />
+</navigation>

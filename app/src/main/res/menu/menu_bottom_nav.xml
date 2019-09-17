@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/destRecipes"
+        android:enabled="true"
+        android:icon="@drawable/ic_restaurant_white_24dp"
+        android:title="Dishes"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/destHome"
+        android:enabled="true"
+        android:icon="@drawable/ic_home_white_24dp"
+        android:title="Home"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/destPantry"
+        android:enabled="true"
+        android:icon="@drawable/ic_kitchen_white_24dp"
+        android:title="Pantry"
+        app:showAsAction="ifRoom" />
+</menu>

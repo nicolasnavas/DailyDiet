@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DailyDiet</string>
+    <string name="pantry_lblEmptyList_text">There are no ingredients in the pantry. Hurry up, you have some shopping to do : )</string>
+</resources>
