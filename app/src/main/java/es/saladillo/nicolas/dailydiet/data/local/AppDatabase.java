@@ -5,6 +5,8 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.migration.Migration;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import es.saladillo.nicolas.dailydiet.data.local.entities.Diet;
 import es.saladillo.nicolas.dailydiet.data.local.entities.Diet_Dish;
@@ -12,7 +14,7 @@ import es.saladillo.nicolas.dailydiet.data.local.entities.Dish_Ingredient;
 import es.saladillo.nicolas.dailydiet.data.local.entities.Ingredient;
 import es.saladillo.nicolas.dailydiet.data.local.entities.Dish;
 
-@Database(entities = {Diet.class, Diet_Dish.class, Ingredient.class, Dish.class, Dish_Ingredient.class}, version = 1, exportSchema = false)
+@Database(entities = {Diet.class, Diet_Dish.class, Ingredient.class, Dish.class, Dish_Ingredient.class}, version = 3, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static final String DATABASE_NAME = "daily_diet.db";
@@ -29,7 +31,7 @@ public abstract class AppDatabase extends RoomDatabase {
         if (instance == null) {
             synchronized (AppDatabase.class) {
                 if (instance == null) {
-                    instance = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class,DATABASE_NAME).build();
+                    instance = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class,DATABASE_NAME).fallbackToDestructiveMigration().build();
                 }
             }
         }

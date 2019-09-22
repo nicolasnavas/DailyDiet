@@ -5,7 +5,7 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "ingredient", indices = {@Index(value = "ingredient_id", unique = true)})
+@Entity(tableName = "ingredient", indices = {@Index(value = "name", unique = true)})
 public class Ingredient {
     @PrimaryKey (autoGenerate = true)
     @NonNull
@@ -13,6 +13,7 @@ public class Ingredient {
     private String name;
     private String image;
     private int quantity;
+    private int minimum;
 
     public long getIngredient_id() {
         return ingredient_id;
@@ -44,5 +45,13 @@ public class Ingredient {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public int getMinimum() {
+        return minimum;
+    }
+
+    public void setMinimum(int minimum) {
+        this.minimum = minimum;
     }
 }

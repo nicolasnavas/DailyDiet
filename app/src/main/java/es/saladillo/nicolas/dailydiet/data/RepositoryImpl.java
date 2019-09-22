@@ -1,5 +1,6 @@
 package es.saladillo.nicolas.dailydiet.data;
 
+import android.database.sqlite.SQLiteConstraintException;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
@@ -119,11 +120,24 @@ public class RepositoryImpl implements Repository {
 
     @Override
     public void insertIngredient(Ingredient ingredient) {
-        AsyncTask.THREAD_POOL_EXECUTOR.execute(() -> ingredientDAO.insert(ingredient));
+        AsyncTask.THREAD_POOL_EXECUTOR.execute(() -> {
+            try{
+                ingredientDAO.insert(ingredient);
+            }catch (SQLiteConstraintException constraintException){
+
+            }
+
+        });
     }
     @Override
     public void updateIngredient(Ingredient ingredient) {
-        AsyncTask.THREAD_POOL_EXECUTOR.execute(() -> ingredientDAO.update(ingredient));
+        AsyncTask.THREAD_POOL_EXECUTOR.execute(() -> {
+            try{
+                ingredientDAO.update(ingredient);
+            }catch (SQLiteConstraintException constraintException){
+
+            }
+        });
     }
     @Override
     public void deleteIngredient(Ingredient ingredient) {

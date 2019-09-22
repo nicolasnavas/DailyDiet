@@ -11,6 +11,7 @@ import es.saladillo.nicolas.dailydiet.data.local.entities.Ingredient;
 public class PantryViewModel extends ViewModel {
     private Repository repository;
     private LiveData<List<Ingredient>> storedIngredients;
+    private Ingredient modifiedIngredient;
 
     public PantryViewModel(Repository repository) {
         this.repository = repository;
@@ -23,8 +24,20 @@ public class PantryViewModel extends ViewModel {
     public void addIngredient(Ingredient ingredient){
         repository.insertIngredient(ingredient);
     }
+    public void deleteIngredient(Ingredient ingredient){
+        repository.deleteIngredient(ingredient);
+    }
 
+    // Getters and Setters
     public LiveData<List<Ingredient>> getStoredIngredients() {
         return storedIngredients;
+    }
+
+    public Ingredient getModifiedIngredient() {
+        return modifiedIngredient;
+    }
+
+    public void setModifiedIngredient(Ingredient modifiedIngredient) {
+        this.modifiedIngredient = modifiedIngredient;
     }
 }

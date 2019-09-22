@@ -14,10 +14,27 @@
         android:id="@+id/destPantry"
         android:name="es.saladillo.nicolas.dailydiet.ui.fragments.pantry.Pantry"
         android:label="Pantry"
-        tools:layout="@layout/pantry_fragment" />
+        tools:layout="@layout/pantry_fragment" >
+        <action
+            android:id="@+id/action_destPantry_to_allIngredients"
+            app:destination="@id/destAllIngredients"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
     <fragment
         android:id="@+id/destRecipes"
         android:name="es.saladillo.nicolas.dailydiet.ui.fragments.recipes.Recipes"
         android:label="Recipes"
         tools:layout="@layout/recipes_fragment" />
+    <fragment
+        android:id="@+id/destAllIngredients"
+        android:name="es.saladillo.nicolas.dailydiet.ui.fragments.pantry.AllIngredients.AllIngredients"
+        android:label="All Ingredients"
+        tools:layout="@layout/all_ingredients_fragment">
+        <action
+            android:id="@+id/action_allIngredients_to_destPantry"
+            app:destination="@id/destPantry" />
+    </fragment>
 </navigation>

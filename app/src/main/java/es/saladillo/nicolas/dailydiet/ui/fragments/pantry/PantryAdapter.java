@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 
 import java.lang.ref.WeakReference;
 
+import es.saladillo.nicolas.dailydiet.R;
 import es.saladillo.nicolas.dailydiet.data.local.entities.Ingredient;
 import es.saladillo.nicolas.dailydiet.databinding.PantryListItemBinding;
 import es.saladillo.nicolas.dailydiet.utilities.Utilities;
@@ -60,10 +61,10 @@ public class PantryAdapter extends ListAdapter<Ingredient, PantryAdapter.ViewHol
     public Ingredient getItem(int position) {
         return super.getItem(position);
     }
-
     // VIEWHOLDER
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private PantryListItemBinding plib;
+        public Ingredient ingredient;
+        public PantryListItemBinding plib;
         private WeakReference<PlusMinusButtonsListener> plusMinusButtonsListener;
 
         ViewHolder(PantryListItemBinding plib,PlusMinusButtonsListener plusMinusButtonsListener) {
@@ -73,9 +74,13 @@ public class PantryAdapter extends ListAdapter<Ingredient, PantryAdapter.ViewHol
         }
 
         void bind(Ingredient ingredient) {
+            this.ingredient = ingredient;
             // Showing the information from the ingredient
             Utilities.drawImageGlide(ingredient.getImage(),plib.imgIngredient);
             plib.lblIngredientName.setText(ingredient.getName());
+            if(ingredient.getQuantity() < ingredient.getMinimum()){
+                plib.lblStoredIngredientQuantity.setTextColor(plib.lblIngredientName.getContext().getResources().getColor(R.color.holo_red_light));
+            }
             plib.lblStoredIngredientQuantity.setText(Integer.toString(ingredient.getQuantity()));
 
             // Listeners for the + and - buttons
